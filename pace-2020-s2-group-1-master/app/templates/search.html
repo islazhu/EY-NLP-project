@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Search</h1>
+<p>Allow users to query the given data set using natural language.</p>
+<h2>Keyword Guide </h2>
+The following words in your database  have SQL keywords in them and MAY not return the correct results or any. Please ensure the check your results or change the column names.
+
+<table>
+	<thead>
+		<tr>
+			<th style="width: 200px;">Column Name</th>
+			<th style="width: 200px;">Key Word</th>
+			
+		</tr>
+	</thead>
+
+	<tbody>
+		{% for keyword in keyword_guide %}
+		<tr>
+			<td style="width: 200px;">{{ keyword[0] }}</td>
+			<td style="width: 200px;">{{ keyword[1]}}</td>
+			
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+<br>
+<p><b> Hint: </b> Give a suggested query here </p>
+
+
+
+
+<div>
+    <form method="POST" action="/query_data" enctype=multipart/form-data>
+    <div class="form-group">
+      <input
+        type="text"
+        name="board"
+        placeholder="Enter queries here"
+        class="form-control"
+        style="width: 900px"
+      />
+    </div>
+    <div>
+      <button type="submit" class="btn btn-outline-secondary">Query</button>
+    </div>
+</div>
+<br> <br>
+<h2> Guide to Data Types </h2>
+Below is an example of the most common data types in SQL. For a more detailed guide on data types click <a href="https://www.w3schools.com/sql/sql_datatypes.asp">here</a>
+<li><b> VARCHAR or TEXT: </b> This column stores text as a value. Example ("John", "Red", "2m41fs6") </li>
+<li><b> BIGINT: </b> This column stores a number value less than  19 digits in length. Example (500,000,000,000)  </li>
+<li><b> INT or INTEGER: </b> This column stores a number value less than  10 digits in length. Example (100)  </li>
+<li><b> FLOAT: </b> This column stores a number with a decimal point up to 16 digits in length as value. Example (3.14159265359, 1.0, 1.1)  </li>
+<li><b> REAL: </b> This column stores a number with a decimal point up to 6 digits in length as value. Example (3.14159265359, 1.0, 1.1)  </li>
+<li><b> BOOLEAN: </b>This column stores either a 0 or 1 value to represent true or false. Example (0,1)  </li>
+<li><b> DATE: </b>This column stores  day, month and year values. Example (05-12-2019)  </li>
+<li><b> TIME: </b>This column stores hour minute and second values. Example (2:20:42)  </li>
+
+
+
+<br> <br>
+<h2> Display of Loaded Data </h2>
+{% for table in tables %}
+<h6>The database contains the following tables and associated column names and values<h6>
+<b>{{table}}</b>
+<br> </br>
+
+<table>
+  <thead>
+    <tr>
+      {% for column in columns %}
+      <th style="width: 250px;"> {{column}}</th>
+
+      {% endfor %}
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <tr>
+  {% for type in types %}
+      <td style="width: 250px;"> {{ type }}</td>
+{% endfor %}
+  </tr>
+  <tr>
+{% for x in sql %}
+    <td style="width: 250px;"> {{x}}</td>
+{% endfor %}
+
+    </tr>
+
+  </tbody>
+</table>
+{% endfor %}
+</div>
+
+
+
+
+{% endblock %}

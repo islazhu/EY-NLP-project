@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/static/vendor/bootstrap/css/bootstrap.min.css" crossorigin="anonymous">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <link rel="shortcut icon" href="/static/favicon.ico">
+
+    <title>EY NLQ</title>
+</head>
+
+<body>
+    <!-- Nav Bar -->
+    <nav class="navbar navbar-light bg-ey-primary border-bottom fixed-top">
+        <a class="navbar-brand" href="/">EY NLQ</a>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <!-- Side Bar -->
+            <div id=sidebar class="col-12 col-md-2 border">
+                <nav class="nav navbar-light">
+                    <div class="flex-column my-2 mt-md-5 ml-3">
+                        <h4 class="d-none d-md-block">Menu</h4>
+                        <a href="/" class="nav-link">Home</a>
+                        <a href="/search" class="nav-link">Search</a>
+                        <a href="/data" class="nav-link">Current Data</a>
+                        <a href="/csv" class="nav-link">Upload .csv</a>
+                        <a href="/help" class="nav-link">Help </a>
+                    </div>
+                </nav>
+            </div>
+
+            <!-- Content -->
+            <div id="content" class="col-12 col-md-10 offset-md-2 mt-5 px-5" style="display: none">
+                {% with messages = get_flashed_messages(with_categories=True) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                        <div class="alert alert-{{ category }} mb-5" role="alert">
+                            {{ message }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+
+    <!-- JQuery -->
+    <script
+        src="/static/vendor/jquery/js/jquery-3.3.1.min.js"></script>
+
+    <!-- Popper.js -->
+    <script src="/static/vendor/popperjs/js/popper-1.14.7.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="/static/js/main.js"></script>
+
+</body>
+
+</html>

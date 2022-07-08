@@ -1,0 +1,32 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Current Data</h1>
+<p> Filename of data: {{name}} </p>
+ 
+<table>
+	<thead>
+		<tr>
+			{% for x in columns %}
+			<th style="width: 200px;">{{x}}</th>
+	 		{% endfor %}
+
+		</tr>
+	</thead>
+
+	<tbody>
+		{% for result in data %}
+
+		<col>
+{% for x in result %}
+ <td style="width: 200px;">{{x}}</td>
+{% endfor %}
+		</col>
+
+		{% endfor %}
+	</tbody>
+</table>
+
+{% endblock %}

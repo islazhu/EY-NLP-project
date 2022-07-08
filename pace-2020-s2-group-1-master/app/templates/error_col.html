@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h4>You entered </h4>
+ <p> {{show}} <p>
+   
+   
+   <p><h4>We modified it to </h4>
+   {{query}} <p>
+   
+   <p><h4> We generated </h4>
+   {{sql}}<p>
+   
+   
+
+<br> </br>
+<h4> Try the Following </h4>
+
+
+<p>  Suggested queries <p>
+Use one of the columns in the database listed here :  {{ col }}
+
+<p><b>Instead of:</b> {{e}} <br>
+<br><b>Try:</b> {{sug}}<p>
+{% endblock %}

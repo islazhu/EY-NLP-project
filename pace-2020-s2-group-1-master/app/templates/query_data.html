@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h4>You entered </h4>
+ <p> {{show}} <p>
+  
+
+<p><h4>We modified it to </h4>
+{{text}} <p>
+
+<p><h4> We generated </h4>
+{{s}}<p>
+
+
+
+
+<body class = "body">
+  <div class = "container" align = "left">
+    <a href ="/return-files/" target ="blank"> <button class= 'btn btn-primary'> Download Results as .csv </button></a>
+      </div>
+      </body>
+
+
+
+      <h4> Result </h4>
+     
+<table>
+  <thead>
+    <tr>
+ {% for x in headers %}
+      <th style="width: 200px;"> {{x}}</th>
+{% endfor %}
+
+    </tr>
+  </thead>
+
+  <tbody>
+		{% for x in results %}
+
+		<col>
+{% for y in x %}
+ <td style="width: 200px;">{{y}}</td>
+{% endfor %}
+		</col>
+
+		{% endfor %}
+	</tbody>
+</table>
+</table>
+
+
+
+{% endblock %}

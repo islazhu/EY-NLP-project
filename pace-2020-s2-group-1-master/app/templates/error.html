@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h4>You entered </h4>
+ <p> {{show}} <p>
+   
+   
+   <p><h4>We modified it to </h4>
+   {{query}} <p>
+   
+   <p><h4> We generated </h4>
+   {{sql}}<p>
+   
+   
+
+<h4> Result </h4>
+<h5>Error in search</h5>
+{{error}}
+
+<br> </br>
+<h4> Try the Following </h4>
+{% endblock %}

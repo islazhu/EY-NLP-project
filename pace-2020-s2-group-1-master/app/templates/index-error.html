@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Natural Language Querying</h1>
+<p>PACE - EY Data and Analytics</p>
+
+<div>
+    <form method="POST" action="/" enctype=multipart/form-data>
+    <div class="form-group">
+      <input
+        type="text"
+        name="connection"
+        placeholder="Input connection string"
+        class="form-control"
+        style="width: 900px"
+      />
+    </div>
+    <div>
+      <button type="submit" class="btn btn-outline-secondary">Query</button>
+    </div>
+</div>
+<p>
+ Unsuccessfully connected to database from string:
+{{t}}
+</p>
+ With the error:
+{{em}}
+{% endblock %}
